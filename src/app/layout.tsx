@@ -16,11 +16,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <meta
+        property="og:image"
+        content="https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.fundacion-affinity.org%2Fperros-gatos-y-personas%2Ftengo-un-animal-de-compania%2Flos-8-sonidos-principales-del-perro&psig=AOvVaw1VB9-NYWlDihSaRI9LziWw&ust=1701654894463000&source=images&cd=vfe&ved=0CBEQjRxqFwoTCIDEi86U8oIDFQAAAAAdAAAAABAE"
+      />
       <head>
-        <meta
-          property="og:image"
-          content="https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.fundacion-affinity.org%2Fperros-gatos-y-personas%2Ftengo-un-animal-de-compania%2Flos-8-sonidos-principales-del-perro&psig=AOvVaw1VB9-NYWlDihSaRI9LziWw&ust=1701654894463000&source=images&cd=vfe&ved=0CBEQjRxqFwoTCIDEi86U8oIDFQAAAAAdAAAAABAE"
-        />
         <link rel="stylesheet" href="ita.css" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" />
