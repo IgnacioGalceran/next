@@ -1,23 +1,55 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
+import VisibilityDetector from "../visibility";
+import Countdown from "../time";
 
 export default function Home() {
   const [isPlaying, setIsPlaying] = useState(false);
-  const [scrollY, setScrollY] = useState(0);
+  const [isVisible1, setIsVisible1] = useState(false);
+  const [isVisible2, setIsVisible2] = useState(false);
+  const [isVisible3, setIsVisible3] = useState(false);
+  const [isVisible4, setIsVisible4] = useState(false);
+  const [isVisible5, setIsVisible5] = useState(false);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrollY(window.scrollY);
-    };
+  const handleVisibilityChange1 = () => {
+    setIsVisible1(true);
+  };
 
-    const buttons = buttonsRef.current.filter(Boolean);
+  const handleHiddenChange1 = () => {
+    setIsVisible1(false);
+  };
 
-    window.addEventListener("scroll", handleScroll);
+  const handleVisibilityChange2 = () => {
+    setIsVisible2(true);
+  };
 
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
+  const handleHiddenChange2 = () => {
+    setIsVisible2(false);
+  };
+
+  const handleVisibilityChange3 = () => {
+    setIsVisible3(true);
+  };
+
+  const handleHiddenChange3 = () => {
+    setIsVisible3(false);
+  };
+
+  const handleVisibilityChange4 = () => {
+    setIsVisible4(true);
+  };
+
+  const handleHiddenChange4 = () => {
+    setIsVisible4(false);
+  };
+
+  const handleVisibilityChange5 = () => {
+    setIsVisible5(true);
+  };
+
+  const handleHiddenChange5 = () => {
+    setIsVisible5(false);
+  };
 
   function isElementInViewport(el: HTMLElement, offset: number) {
     const rect = el.getBoundingClientRect();
@@ -127,11 +159,16 @@ export default function Home() {
               <span id="second"></span>
               <span id="second-s"></span>
             </div>
+            <Countdown targetDate={"2023-12-17 14:30"} />
           </div>
         </section>
         <section className="cuadro-imagen">
+          <VisibilityDetector
+            onVisible={handleVisibilityChange1}
+            onHidden={handleHiddenChange1}
+          />
           <img
-            className={`Foto ${scrollY > 600 ? "visible" : "hidden"}`}
+            className={`Foto ${isVisible1 ? "visible" : "hidden"}`}
             src="./imagenes/Foto4.jpeg"
           />
         </section>
@@ -155,8 +192,12 @@ export default function Home() {
           </a>
         </section>
         <section className="cuadro-imagen">
+          <VisibilityDetector
+            onVisible={handleVisibilityChange2}
+            onHidden={handleHiddenChange2}
+          />
           <img
-            className={`Foto ${scrollY > 1100 ? "visible" : "hidden"}`}
+            className={`Foto ${isVisible2 ? "visible" : "hidden"}`}
             src="./imagenes/Foto3.jpeg"
           />
         </section>
@@ -167,8 +208,12 @@ export default function Home() {
           <p className="malla">Si querés, traé tu malla y toallón</p>
         </section>
         <section className="cuadro-imagen">
+          <VisibilityDetector
+            onVisible={handleVisibilityChange3}
+            onHidden={handleHiddenChange3}
+          />
           <img
-            className={`Foto ${scrollY > 2000 ? "visible" : "hidden"}`}
+            className={`Foto ${isVisible3 ? "visible" : "hidden"}`}
             src="./imagenes/Foto2.jpeg"
           />
         </section>
@@ -189,8 +234,12 @@ export default function Home() {
           </a>
         </section>
         <section className="cuadro-imagen">
+          <VisibilityDetector
+            onVisible={handleVisibilityChange4}
+            onHidden={handleHiddenChange4}
+          />
           <img
-            className={`Foto ${scrollY > 3000 ? "visible" : "hidden"}`}
+            className={`Foto ${isVisible4 ? "visible" : "hidden"}`}
             src="./imagenes/Foto1.jpeg"
           />
         </section>
@@ -201,8 +250,12 @@ export default function Home() {
           </span>
         </section>
         <section className="cuadro-imagen">
+          <VisibilityDetector
+            onVisible={handleVisibilityChange5}
+            onHidden={handleHiddenChange5}
+          />
           <img
-            className={`Foto ${scrollY > 3800 ? "visible" : "hidden"}`}
+            className={`Foto ${isVisible5 ? "visible" : "hidden"}`}
             src="./imagenes/Foto5.jpeg"
           />
         </section>
