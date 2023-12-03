@@ -1,23 +1,23 @@
 "use client";
 import React, { useEffect, useState } from "react";
 
-const agregarCeros = (valor: number) => (valor < 10 ? `0${valor}` : valor);
-
 interface CountdownProps {
   targetDate: string;
 }
 
-const Countdown: React.FC<CountdownProps> = ({ targetDate }) => {
-  const [timeRemaining, setTimeRemaining] = useState<number>(
-    calculateTimeRemaining()
-  );
+const agregarCeros = (valor: number) => (valor < 10 ? `0${valor}` : valor);
 
-  function calculateTimeRemaining() {
+const Countdown: React.FC<CountdownProps> = ({ targetDate }) => {
+  const calculateTimeRemaining = () => {
     const targetDateTime = new Date(targetDate).getTime();
     const currentDateTime = new Date().getTime();
     const timeLeft = targetDateTime - currentDateTime;
     return Math.max(0, timeLeft);
-  }
+  };
+
+  const [timeRemaining, setTimeRemaining] = useState<number>(
+    calculateTimeRemaining()
+  );
 
   useEffect(() => {
     const intervalId = setInterval(() => {
@@ -35,13 +35,45 @@ const Countdown: React.FC<CountdownProps> = ({ targetDate }) => {
   const seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
 
   return (
-    <div>
-      <div>
-        {agregarCeros(hours)}:{agregarCeros(minutes)}:{agregarCeros(seconds)}
+    <>
+      <h2 className="tiempo">¿Cuánto falta?</h2>
+      <div className="tiempo-numeros">
+        <div className="tiempo-container">
+          <div>
+            <span>{agregarCeros(days)}</span>
+            <span>Días</span>
+          </div>
+          <span className="punto" id="puntoD">
+            :
+          </span>
+        </div>
+        <div className="tiempo-container">
+          <div>
+            <span>{agregarCeros(hours)}</span>
+            <span>Horas</span>
+          </div>
+          <span className="punto" id="puntoH">
+            :
+          </span>
+        </div>
+        <div className="tiempo-container">
+          <div>
+            <span>{agregarCeros(minutes)}</span>
+            <span>Minutos</span>
+          </div>
+          <span className="punto" id="puntoM">
+            :
+          </span>
+        </div>
+        <div className="tiempo-container">
+          <div>
+            <span>{agregarCeros(seconds)}</span>
+            <span>Segundos</span>
+          </div>
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 
-export { agregarCeros };
 export default Countdown;

@@ -1,7 +1,11 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
 import VisibilityDetector from "../visibility";
-import Countdown from "../time";
+import dynamic from "next/dynamic";
+
+const Countdown = dynamic(() => import("../time"), {
+  ssr: false,
+});
 
 export default function Home() {
   const [isPlaying, setIsPlaying] = useState(false);
@@ -96,6 +100,7 @@ export default function Home() {
 
     setIsPlaying(!isPlaying);
   };
+
   return (
     <>
       <main className="content">
@@ -138,29 +143,7 @@ export default function Home() {
           <p className="mi-dia">¡Mi día!</p>
         </section>
         <section className="cuadro-dos">
-          <h2 className="tiempo">¿Cuánto falta?</h2>
-          <div className="tiempo-numeros">
-            <div className="tiempo-container">
-              <span id="day"></span>
-              <span id="day-d"></span>
-              <span className="punto" id="puntoD"></span>
-            </div>
-            <div className="tiempo-container">
-              <span id="hour"></span>
-              <span id="hour-h"></span>
-              <span className="punto" id="puntoH"></span>
-            </div>
-            <div className="tiempo-container">
-              <span id="minute"></span>
-              <span id="minute-m"></span>
-              <span className="punto" id="puntoM"></span>
-            </div>
-            <div className="tiempo-container">
-              <span id="second"></span>
-              <span id="second-s"></span>
-            </div>
-            <Countdown targetDate={"2023-12-17 14:30"} />
-          </div>
+          <Countdown targetDate={"2023-12-17 14:30"} />
         </section>
         <section className="cuadro-imagen">
           <VisibilityDetector

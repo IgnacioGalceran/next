@@ -308,30 +308,27 @@ h1 {
 
 .tiempo-numeros {
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
   text-align: center;
   font-size: 1rem;
   margin: 0;
-  padding: 30px 0;
+  padding: 30px 20px;
 }
 
 .tiempo-container {
   position: relative;
+  display: flex;
 }
 
-.punto {
-  position: absolute;
-  font-family: "Dancing Script", cursive;
-  top: -20px;
-  right: -10px;
-  font-size: 2rem;
-  font-weight: 600;
+.tiempo-container div {
+  display: flex;
+  flex-direction: column;
 }
 
 .tiempo-numeros span {
   font-family: "Dancing Script", cursive;
-  padding: 5px 5px;
+  padding: 5px 4px;
 }
 
 .cuadro-cuatro .malla {
