@@ -16,12 +16,12 @@ body {
 }
 
 .hidden {
-  transition: opacity 1.8s;
-  opacity: 0.1;
+  transition: opacity 1.5s;
+  opacity: 0.3;
 }
 
 .visible {
-  transition: opacity 1.8s;
+  transition: opacity 1.5s;
   opacity: 1;
 }
 
