@@ -131,7 +131,7 @@ export default function Home() {
         </section>
         <section className="cuadro-imagen">
           <img
-            className={`Foto ${scrollY > 300 ? "visible" : "hidden"}`}
+            className={`Foto ${scrollY > 600 ? "visible" : "hidden"}`}
             src="./imagenes/Foto4.jpeg"
           />
         </section>
