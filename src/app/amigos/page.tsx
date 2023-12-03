@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
 import VisibilityDetector from "../visibility";
+import Countdown from "../time";
 
 export default function Home() {
   const [isPlaying, setIsPlaying] = useState(false);
@@ -158,6 +159,7 @@ export default function Home() {
               <span id="second"></span>
               <span id="second-s"></span>
             </div>
+            <Countdown targetDate={"2023-12-17 14:30"} />
           </div>
         </section>
         <section className="cuadro-imagen">
