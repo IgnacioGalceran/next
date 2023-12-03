@@ -160,12 +160,6 @@ export default function Home() {
             src="./imagenes/Foto3.jpeg"
           />
         </section>
-        <section id="cuadro-cuatro" className="cuadro-cuatro">
-          <div className="percha-container">
-            <img width="90px" height="90px" src="./imagenes//sol.png" />
-          </div>
-          <p className="malla">Si querés, traé tu malla y toallón</p>
-        </section>
         <section className="cuadro-imagen">
           <img
             className={`Foto ${scrollY > 2000 ? "visible" : "hidden"}`}
