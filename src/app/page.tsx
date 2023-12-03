@@ -3,6 +3,21 @@ import { useEffect, useRef, useState } from "react";
 
 export default function Home() {
   const [isPlaying, setIsPlaying] = useState(false);
+  const [scrollY, setScrollY] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollY(window.scrollY);
+    };
+
+    const buttons = buttonsRef.current.filter(Boolean);
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   function isElementInViewport(el: HTMLElement, offset: number) {
     const rect = el.getBoundingClientRect();
@@ -115,7 +130,10 @@ export default function Home() {
           </div>
         </section>
         <section className="cuadro-imagen">
-          <img className="Foto" src="./imagenes/Foto4.jpeg" />
+          <img
+            className={`Foto ${scrollY > 300 ? "visible" : "hidden"}`}
+            src="./imagenes/Foto4.jpeg"
+          />
         </section>
         <section className="cuadro-cuatro">
           <img
@@ -124,7 +142,7 @@ export default function Home() {
             height="70px"
             src="./imagenes/ubicacion.png"
           />
-          <h2 className="mi-casa">Lugar</h2>
+          <h1 className="mi-casa">Lugar</h1>
           <p>Calle 69 entre 52 y 54</p>
           <p>De 14:30 a 20:30</p>
           <a
@@ -137,7 +155,10 @@ export default function Home() {
           </a>
         </section>
         <section className="cuadro-imagen">
-          <img className="Foto" src="./imagenes/Foto3.jpeg" />
+          <img
+            className={`Foto ${scrollY > 1100 ? "visible" : "hidden"}`}
+            src="./imagenes/Foto3.jpeg"
+          />
         </section>
         <section id="cuadro-cuatro" className="cuadro-cuatro">
           <div className="percha-container">
@@ -146,7 +167,10 @@ export default function Home() {
           <p className="malla">Si querés, traé tu malla y toallón</p>
         </section>
         <section className="cuadro-imagen">
-          <img className="Foto" src="./imagenes/Foto2.jpeg" />
+          <img
+            className={`Foto ${scrollY > 2000 ? "visible" : "hidden"}`}
+            src="./imagenes/Foto2.jpeg"
+          />
         </section>
         <section className="cuadro-cinco">
           <img width="70px" height="70px" src="./imagenes/musica.png" />
@@ -165,7 +189,10 @@ export default function Home() {
           </a>
         </section>
         <section className="cuadro-imagen">
-          <img className="Foto" src="./imagenes/Foto1.jpeg" />
+          <img
+            className={`Foto ${scrollY > 3000 ? "visible" : "hidden"}`}
+            src="./imagenes/Foto1.jpeg"
+          />
         </section>
         <section className="cuadro-seis">
           <img width="70px" height="70px" src="./imagenes/corazon.png" />
@@ -174,7 +201,10 @@ export default function Home() {
           </span>
         </section>
         <section className="cuadro-imagen">
-          <img className="Foto" src="./imagenes/Foto5.jpeg" />
+          <img
+            className={`Foto ${scrollY > 3800 ? "visible" : "hidden"}`}
+            src="./imagenes/Foto5.jpeg"
+          />
         </section>
         <section className="cuadro-siete">
           <h3 className="confirmar">Confirmá tu asistencia</h3>

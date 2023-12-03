@@ -144,7 +144,7 @@ export default function Home() {
           />
           <h1 className="mi-casa">Lugar</h1>
           <p>Calle 69 entre 52 y 54</p>
-          <p>Desde las 20:30</p>
+          <p>de 18:00 a 20:00</p>
           <a
             ref={(el) => buttonsRef.current.push(el)}
             className="button"
