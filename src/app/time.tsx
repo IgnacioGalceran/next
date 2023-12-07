@@ -38,39 +38,48 @@ const Countdown: React.FC<CountdownProps> = ({ targetDate }) => {
     <>
       <h2 className="tiempo">¿Cuánto falta?</h2>
       <div className="tiempo-numeros">
-        <div className="tiempo-container">
-          <div>
-            <span>{agregarCeros(days)}</span>
-            <span>Días</span>
+        {timeRemaining > 0 ? (
+          <>
+            <div className="tiempo-container">
+              <div>
+                <span>{agregarCeros(days)}</span>
+                <span>Días</span>
+              </div>
+              <span className="punto" id="puntoD">
+                :
+              </span>
+            </div>
+            <div className="tiempo-container">
+              <div>
+                <span>{agregarCeros(hours)}</span>
+                <span>Horas</span>
+              </div>
+              <span className="punto" id="puntoH">
+                :
+              </span>
+            </div>
+            <div className="tiempo-container">
+              <div>
+                <span>{agregarCeros(minutes)}</span>
+                <span>Minutos</span>
+              </div>
+              <span className="punto" id="puntoM">
+                :
+              </span>
+            </div>
+            <div className="tiempo-container">
+              <div>
+                <span>{agregarCeros(seconds)}</span>
+                <span>Segundos</span>
+              </div>
+            </div>
+          </>
+        ) : (
+          <div className="limitTime">
+            <h2 className="tiempo">Es ahora!!</h2>
+            <span className="imageCumple"></span>
           </div>
-          <span className="punto" id="puntoD">
-            :
-          </span>
-        </div>
-        <div className="tiempo-container">
-          <div>
-            <span>{agregarCeros(hours)}</span>
-            <span>Horas</span>
-          </div>
-          <span className="punto" id="puntoH">
-            :
-          </span>
-        </div>
-        <div className="tiempo-container">
-          <div>
-            <span>{agregarCeros(minutes)}</span>
-            <span>Minutos</span>
-          </div>
-          <span className="punto" id="puntoM">
-            :
-          </span>
-        </div>
-        <div className="tiempo-container">
-          <div>
-            <span>{agregarCeros(seconds)}</span>
-            <span>Segundos</span>
-          </div>
-        </div>
+        )}
       </div>
     </>
   );

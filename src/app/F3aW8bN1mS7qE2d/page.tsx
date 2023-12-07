@@ -143,7 +143,7 @@ export default function Home() {
           <p className="mi-dia">¡Mi día!</p>
         </section>
         <section className="cuadro-dos">
-          <Countdown targetDate={"2023-12-17 14:30"} />
+          <Countdown targetDate={"2023-12-17 20:30"} />
         </section>
         <section className="cuadro-imagen">
           <VisibilityDetector
