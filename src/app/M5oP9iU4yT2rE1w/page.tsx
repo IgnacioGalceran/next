@@ -194,22 +194,6 @@ export default function Home() {
             src="./imagenes/Foto2.jpeg"
           />
         </section>
-        <section className="cuadro-cinco">
-          <img width="70px" height="70px" src="./imagenes/musica.png" />
-          <span className="musica">¡Quiero que nos divirtamos juntos!</span>
-          <span>Ayudame desde ahora a hacer</span>
-          <span>
-            la playlist para ese día con las canciones que no pueden faltar!
-          </span>
-          <a
-            ref={(el) => buttonsRef.current.push(el)}
-            className="button"
-            target="_blank"
-            href="https://spotify.link/InwxOehjbDb"
-          >
-            Playlist
-          </a>
-        </section>
         <section className="cuadro-imagen">
           <VisibilityDetector
             onVisible={handleVisibilityChange4}
